@@ -56,7 +56,7 @@ ROOT_URLCONF = 'test_proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"D:/06) Documentos, Musica, Fotos y Videos_backup/Cursos/Python/Programas/clase16/indice/plantillas"],
+        'DIRS': [], #borre la direccion, cambie el nombre de la carpeta plantillas a templates y guardo los html por cada app
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

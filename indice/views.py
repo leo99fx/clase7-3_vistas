@@ -1,10 +1,12 @@
 from django.http import HttpResponse
 import random
 from datetime import datetime
+from django.shortcuts import render
 from django.template import Context, Template, loader
 
 def inicio(request):
-    return HttpResponse("Hola soy la nueva pagina")
+    # return HttpResponse("Hola soy la nueva pagina")
+    return render(request, "indice/index.html",{})
 
 def otra_vista(request):
     return HttpResponse('''
@@ -26,12 +28,11 @@ def cumpleaños(request, año):
     edad=año_hoy-año
     return HttpResponse(edad)
 
-def mi_plantilla(self):
-    # plantilla=open("D:/06) Documentos, Musica, Fotos y Videos_backup/Cursos/Python/Programas/clase16/test_proyecto/plantillas/mi_plantilla.html")
+def mi_plantilla(request):
+    
+    # # template=loader.get_template("mi_plantilla.html")
 
-    template=loader.get_template("mi_plantilla.html")
-
-    # template=Template(plantilla.read())
+    
 
     nombre='Jorge'
     apellido='Atahualpa'
@@ -46,6 +47,16 @@ def mi_plantilla(self):
     }
     
 
+    # version vieja con open
+    # plantilla=open("D:/06) Documentos, Musica, Fotos y Videos_backup/Cursos/Python/Programas/clase16/test_proyecto/plantillas/mi_plantilla.html")
+    # template=Template(plantilla.read())
+    # plantilla.close()
     # context= Context(diccionario_de_datos)
-    plantilla_preparada=template.render(diccionario_de_datos) #antes le pasa el context
-    return HttpResponse(plantilla_preparada)
+    # plantilla_preparada=template.render(dicionarrio_de_datos)
+
+    # version nueva con loader
+    # template=loader.get_template("mi_plantilla.html")
+    # plantilla_preparada=template.render(diccionario_de_datos) #antes le pasa el context
+    # return HttpResponse(plantilla_preparada)
+
+    return render(request, "indice/mi_plantilla.html", diccionario_de_datos)
