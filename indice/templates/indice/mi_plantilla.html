@@ -1,12 +1,25 @@
 <!DOCTYPE html>
+{% extends 'indice/index.html' %}  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    {% block titulo %}
+        <title>Mi Plantilla</title>
+    {% endblock titulo %}
+    
 </head>
 <body>
+
+  
+
+{% block pruebaTemplate %}
+
+    {{% block segundo %}
+    {% endblock segundo %}}
+    
     Mi plantilla la mas vacia
     {{nombre}} {{apellido}}
     
@@ -24,6 +37,8 @@
     {% for valor in lista  %}
         <p style="color: red;">{{valor}}</p>
     {% endfor %}
+
+{% endblock pruebaTemplate %}
 
 
 </body>
